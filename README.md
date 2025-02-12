@@ -59,7 +59,11 @@ Generates:
 Attributes are added as a plain object. You can include any standard HTML attributes, such as class, id, style and even event listeners like `onClick`.
 
 ```js
-['button', { class: 'btn', onClick: ()=>alert('Clicked!') },
+['button', 
+  {
+    class: 'btn',
+    onClick: ()=>alert('Clicked!')
+  },
   'click me']
 ```
 
@@ -133,6 +137,6 @@ document.body.appendChild(nodeEl);
 
 ## Notes
 
-* Hexp is experimental, use it at your own risk.
-* It's great for small projects due to its minimal and straightforward design.
+* This library is experimental, use it at your own risk.
 * Hexp gives a lot of freedom, you can use it with most libraries or create your own framework with it.
+* Contributions and feedback are welcomed and encouraged.
