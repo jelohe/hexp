@@ -1,0 +1,37 @@
+{
+  "name": "hexp",
+  "version": "0.0.1",
+  "description": "concise html rendering in js with sexp syntax",
+  "keywords": [
+    "concise",
+    "javascript",
+    "render",
+    "html",
+    "lisp"
+  ],
+  "homepage": "https://github.com/jelohe/hexp#readme",
+  "bugs": {
+    "url": "https://github.com/jelohe/hexp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jelohe/hexp.git"
+  },
+  "license": "GNU",
+  "author": "jelohe",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.8",
+    "@babel/preset-env": "^7.26.8",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
