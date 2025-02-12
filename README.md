@@ -23,20 +23,28 @@ H-expressions are arrays in which the first element is the tag, the second an Ob
 
 ```js
 ['div', {},
-    ['h1', {}, 'Hello,'],  // You can add as many nodes
-    ['h2', {}, 'World!'],  // as you want as children
+    ['h1', {}, 'Hello,'],  // You can add as many hexp
+    ['h2', {}, 'World!'],  // as you want as content
 ]
 ```
 
 You can create a tree just like in HTML nesting hexp inside each other.
 
 ```js
-['main', { class: 'application' },
-    ['div', {},
-        [p, {}, 'Hello,'],
-        [p, {}, 'World'],
+['div', { class: 'application' },
+    ['main', {},
+        ['p', {}, 'Hello,'],
+        ['p', {}, 'World'],
     ],
-    ['footer', { style: { 'background-color': '#ccc' }}
+    ['footer',
+        {
+            class: 'auto-hide', 
+            style: { 
+                'background-color': '#ccc',
+                position: 'absolute',
+                bottom: 0,
+              }
+        },
         ['ul', {},
             ['li', {}, 'Phone: 999 99 99 99'],
             ['li', {}, 'Email: my@email.com'],
