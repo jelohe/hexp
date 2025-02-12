@@ -1,4 +1,4 @@
-import { hexp } from './hexp.js';
+import { hexp } from '../lib/hexp.js';
 
 describe('hexp', () => {
   it('creates a naked element', () => {

@@ -24,7 +24,8 @@
   "scripts": {
     "watch": "jest --watchAll",
     "test": "jest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "minify": "uglifyjs lib/*.js -o dist/hexp.min.js"
   },
   "devDependencies": {
     "@babel/core": "^7.26.8",
