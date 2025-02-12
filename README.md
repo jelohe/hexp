@@ -92,7 +92,7 @@ Get creative with the syntax and spacing.
 A component is a function that returns a hexp.
 You can then use the function reference as an hexp tag.
 
-##### Definition
+#### Definition
 
 Receives an array:
 * The first element will be the attributes.
@@ -112,7 +112,7 @@ function hexpComponent([attrs, content]) {
 }
 ```
 
-##### Usage
+#### Usage
 
 Use the function reference as the hexp tag:
 
