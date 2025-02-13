@@ -59,10 +59,10 @@ Generates:
 Attributes are added as a plain object. You can include any standard HTML attributes, such as class, id, style and even event listeners like `onClick`.
 
 ```js
-['button', 
+['button',
   {
     class: 'btn',
-    onClick: ()=>alert('Clicked!')
+    onClick: () => alert('Clicked!')
   },
   'click me']
 ```

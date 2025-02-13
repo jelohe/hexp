@@ -11,7 +11,7 @@ describe('hexp', () => {
     const btn = hexp(['button', {}, 'The text']);
 
     expect(btn.tagName).toBe('BUTTON');
-    expect(btn.innerHtml).toBe('The text');
+    expect(btn.textContent).toBe('The text');
   });
 
   it('creates an element with primitive attributes', () => {
@@ -21,7 +21,7 @@ describe('hexp', () => {
 
     expect(h1.tagName).toBe('H1');
     expect(h1.className).toBe('myClass');
-    expect(h1.innerHtml).toBe('The text');
+    expect(h1.textContent).toBe('The text');
   });
 
   it('creates an element with object attributes', () => {
@@ -40,7 +40,7 @@ describe('hexp', () => {
     );
 
     button.click();
-    expect(button.innerHtml).toBe('Click me');
+    expect(button.textContent).toBe('Click me');
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 
@@ -59,12 +59,12 @@ describe('hexp', () => {
     expect(section.childElementCount).toBe(2);
 
     const h1 = section.querySelector('h1');
-    expect(h1.innerHtml).toBe('a text');
+    expect(h1.textContent).toBe('a text');
     expect(h1.getAttribute('data-text')).toBe('n00t n00t');
 
     const p = section.querySelector('p');
     expect(p.className).toBe('paragraph-class');
-    expect(p.innerHtml).toBe('another text');
+    expect(p.textContent).toBe('another text');
   });
 
   describe('custom components', () => {
@@ -76,7 +76,7 @@ describe('hexp', () => {
       const component = hexp([hexpComponent]);
 
       expect(component.tagName).toBe('P');
-      expect(component.innerHtml).toBe('hello');
+      expect(component.textContent).toBe('hello');
     });
 
     it('creates a custom component with attributes', () => {
@@ -88,7 +88,7 @@ describe('hexp', () => {
 
       expect(component.tagName).toBe('P');
       expect(component.className).toBe('aClass');
-      expect(component.innerHtml).toBe('i can receive attrs');
+      expect(component.textContent).toBe('i can receive attrs');
     });
 
     it('creates a custom component with children and attributes', () => {
@@ -107,8 +107,8 @@ describe('hexp', () => {
       expect(component.className).toBe('aClass');
 
       const [ span1, span2 ] = component.querySelectorAll('span');
-      expect(span1.innerHtml).toBe('hello');
-      expect(span2.innerHtml).toBe('world');
+      expect(span1.textContent).toBe('hello');
+      expect(span2.textContent).toBe('world');
     });
   });
 });
