@@ -1,7 +1,7 @@
 import { hexp } from '../lib/hexp.js';
 
 describe('hexp', () => {
-  it('creates a naked element', () => {
+  it('creates a simple element', () => {
     const hr = hexp(['hr']);
 
     expect(hr.tagName).toBe('HR');
@@ -68,8 +68,8 @@ describe('hexp', () => {
   });
 
   describe('custom components', () => {
-    it('creates a naked custom component', () => {
-      function hexpComponent(_attrs) {
+    it('creates a simple component', () => {
+      function hexpComponent() {
         return (['p', {}, 'hello']);
       }
 
@@ -79,8 +79,8 @@ describe('hexp', () => {
       expect(component.textContent).toBe('hello');
     });
 
-    it('creates a custom component with attributes', () => {
-      function hexpComponent([attrs]) {
+    it('creates a component with attributes', () => {
+      function hexpComponent(attrs) {
         return (['p', attrs, 'i can receive attrs']);
       }
 
@@ -91,8 +91,8 @@ describe('hexp', () => {
       expect(component.textContent).toBe('i can receive attrs');
     });
 
-    it('creates a custom component with children and attributes', () => {
-      function hexpComponent([attrs, content]) {
+    it('creates a component with children and attributes', () => {
+      function hexpComponent(attrs, content) {
         return ['p', attrs, ...content];
       }
 

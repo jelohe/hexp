@@ -34,6 +34,7 @@ This will generate the following HTML:
 <button class="my-button">click me!</button>
 ```
 
+
 #### Example 2: Div with multiple elements
 
 You can add as many children as you want as content:
@@ -91,21 +92,23 @@ Get creative with the syntax and spacing.
         ['a', {href: 'github.com/mygh'}, 'Github']]]]]
 ```
 
+
 ## Components
 
 A component is a function that returns a hexp.
 You can then use the function reference as an hexp tag.
 
+
 #### Definition
 
-Receives an array:
-* The first element will be the attributes.
-* The second element is an array of hexp elements.
+Receives:
+* First argument are the attributes.
+* Second element is an array of hexp elements.
 
 Returns a hexp structure:
 
 ```js
-function hexpComponent([attrs, content]) {
+function hexpComponent(attrs, content) {
   const customAttrs = { class: 'myClass', ...attrs };
   return (
     ['div', customAttrs,
@@ -124,6 +127,7 @@ Use the function reference as the hexp tag:
 [hexpComponent, {}, 'the content']
 ```
 
+
 ## Rendering Hexp elements
 
 Okay okay, hexp expressions are cool and all but, How do i actually render them?
@@ -135,8 +139,9 @@ const nodeEl = hexp(coolBtn);
 document.body.appendChild(nodeEl);
 ```
 
+
 ## Notes
 
 * This library is experimental, use it at your own risk.
-* Hexp gives a lot of freedom, you can use it with most libraries or create your own framework with it.
-* Contributions and feedback are welcomed and encouraged.
+* Hexp gives a lot of freedom, you can use it with a lot of libraries or create your own framework with it.
+* Hexp has no dependencies.
