@@ -6,7 +6,7 @@ Because they are just arrays, you can store them in variables, return them from 
 
 ## Insallation
 
-Grab the minified filed inside /dist in this repo and include it in your project. No dependencies or build process required.
+Grab the minified file [`dist/hexp.min.js`](https://github.com/jelohe/hexp/blob/main/dist/hexp.min.js) in this repo and include it somewhere in your project. No dependencies or build process required.
 
 ``` html
 <script src="path/to/hexp.min.js"></script>
