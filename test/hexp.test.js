@@ -1,70 +1,72 @@
 import { hexp } from '../lib/hexp.js';
 
-describe('hexp', () => {
-  it('creates a simple element', () => {
-    const hr = hexp(['hr']);
+describe('hexp happy paths', () => {
+  describe('simple components', () => {
+    it('creates a simple element', () => {
+      const hr = hexp(['hr']);
 
-    expect(hr.tagName).toBe('HR');
-  });
+      expect(hr.tagName).toBe('HR');
+    });
 
-  it('creates an element without attributes', () => {
-    const btn = hexp(['button', {}, 'The text']);
+    it('creates an element without attributes', () => {
+      const btn = hexp(['button', {}, 'The text']);
 
-    expect(btn.tagName).toBe('BUTTON');
-    expect(btn.textContent).toBe('The text');
-  });
+      expect(btn.tagName).toBe('BUTTON');
+      expect(btn.textContent).toBe('The text');
+    });
 
-  it('creates an element with primitive attributes', () => {
-    const h1 = hexp(
-      ['h1', { class: 'myClass' }, 'The text']
-    );
+    it('creates an element with primitive attributes', () => {
+      const h1 = hexp(
+        ['h1', { class: 'myClass' }, 'The text']
+      );
 
-    expect(h1.tagName).toBe('H1');
-    expect(h1.className).toBe('myClass');
-    expect(h1.textContent).toBe('The text');
-  });
+      expect(h1.tagName).toBe('H1');
+      expect(h1.className).toBe('myClass');
+      expect(h1.textContent).toBe('The text');
+    });
 
-  it('creates an element with object attributes', () => {
-    const h1 = hexp(
-      ['h1', { style: { color: 'red' }}]
-    );
+    it('creates an element with object attributes', () => {
+      const h1 = hexp(
+        ['h1', { style: { color: 'red' }}]
+      );
 
-    expect(h1.tagName).toBe('H1');
-    expect(h1.style.color).toBe('red');
-  });
+      expect(h1.tagName).toBe('H1');
+      expect(h1.style.color).toBe('red');
+    });
 
-  it('creates an element with event listeners', () => {
-    const mockClick = jest.fn();
-    const button = hexp(
-      ['button', { onClick: mockClick }, 'Click me']
-    );
+    it('creates an element with event listeners', () => {
+      const mockClick = jest.fn();
+      const button = hexp(
+        ['button', { onClick: mockClick }, 'Click me']
+      );
 
-    button.click();
-    expect(button.textContent).toBe('Click me');
-    expect(mockClick).toHaveBeenCalledTimes(1);
-  });
+      button.click();
+      expect(button.textContent).toBe('Click me');
+      expect(mockClick).toHaveBeenCalledTimes(1);
+    });
 
-  it('creates nested elements', () => {
-    const section = hexp(
-      ['section', { class: 'section-class' },
-        ['h1', { 'data-text': 'n00t n00t' } , 'a text'],
-        ['p', { class: 'paragraph-class', style: { display: 'none' }},
-          'another text'
+    it('creates nested elements', () => {
+      const section = hexp(
+        ['section', { class: 'section-class' },
+          ['h1', { 'data-text': 'n00t n00t' } , 'a text'],
+          ['p', { class: 'paragraph-class', style: { display: 'none' }},
+            'another text'
+          ]
         ]
-      ]
-    );
+      );
 
-    expect(section.tagName).toBe('SECTION');
-    expect(section.className).toBe('section-class');
-    expect(section.childElementCount).toBe(2);
+      expect(section.tagName).toBe('SECTION');
+      expect(section.className).toBe('section-class');
+      expect(section.childElementCount).toBe(2);
 
-    const h1 = section.querySelector('h1');
-    expect(h1.textContent).toBe('a text');
-    expect(h1.getAttribute('data-text')).toBe('n00t n00t');
+      const h1 = section.querySelector('h1');
+      expect(h1.textContent).toBe('a text');
+      expect(h1.getAttribute('data-text')).toBe('n00t n00t');
 
-    const p = section.querySelector('p');
-    expect(p.className).toBe('paragraph-class');
-    expect(p.textContent).toBe('another text');
+      const p = section.querySelector('p');
+      expect(p.className).toBe('paragraph-class');
+      expect(p.textContent).toBe('another text');
+    });
   });
 
   describe('custom components', () => {
@@ -110,5 +112,16 @@ describe('hexp', () => {
       expect(span1.textContent).toBe('hello');
       expect(span2.textContent).toBe('world');
     });
+  });
+});
+
+describe('hexp error paths', () => {
+  it('provided tag is not an html element', () => {
+    const el = ['invalid'];
+    
+    const expectedErr = `[HEXP]: \`invalid\` is not a valid HTML element`;
+    expect(() => {
+      hexp(el);
+    }).toThrow(expectedErr);
   });
 });

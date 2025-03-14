@@ -22,10 +22,10 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "watch": "jest --watchAll",
-    "test": "jest",
-    "prepare": "husky",
-    "minify": "uglifyjs lib/*.js -o dist/hexp.min.js"
+    "test:watch": "jest --watchAll",
+    "test:run": "jest",
+    "hooks": "husky",
+    "build": "uglifyjs lib/*.js -o dist/hexp.min.js"
   },
   "devDependencies": {
     "@babel/core": "^7.26.8",

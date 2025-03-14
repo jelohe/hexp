@@ -4,12 +4,13 @@ Hexp is a lightweight library for rendering HTML elements and structures in Java
 
 Because they are just arrays, you can store them in variables, return them from functions, pass them as arguments, etc.
 
-## Insallation
 
-Grab the minified file [`dist/hexp.min.js`](https://github.com/jelohe/hexp/blob/main/dist/hexp.min.js) in this repo and include it somewhere in your project. No dependencies or build process required.
+## Installation
+
+Grab the minified file [`dist/hexp.min.js`](https://github.com/jelohe/hexp/blob/main/dist/hexp.min.js) in this repo and include it somewhere in your project. You can then import it as an [ES6 module](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 
 ``` html
-<script src="path/to/hexp.min.js"></script>
+import hexp from 'path/to/hexp.min.js';
 ```
 
 
@@ -142,6 +143,4 @@ document.body.appendChild(nodeEl);
 
 ## Notes
 
-* This library is experimental, use it at your own risk.
-* Hexp gives a lot of freedom, you can use it with a lot of libraries or create your own framework with it.
-* Hexp has no dependencies.
+* This library is *experimental*, use it at your own risk.
